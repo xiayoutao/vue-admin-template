@@ -1,0 +1,148 @@
+@import './common.scss';
+
+.simple-table {
+	.table-wrapper {
+		font-size: 14px;
+
+		&.is-yellow {
+			font-size: 13px;
+
+			.table-header {
+				thead {
+					tr {
+						border-top: 1px solid #696768;
+						border-bottom: 1px solid #696768;
+					}
+					th {
+						height: 26px;
+						border-right: 1px solid #696768;
+						color: #333;
+						font-weight: 700;
+						background-color: #f9c570;
+					}
+				}
+			}
+			.table-body {
+				tbody {
+					tr {
+						border-bottom-color: #c1c1c1;
+						&:hover {
+							td {
+								border-right-color: #d8cbb1;
+								background-color: #d8cbb1;
+							}
+						}
+						&.current-row {
+							td {
+								border-right-color: #d8cbb1;
+								background-color: #d8cbb1;
+							}
+						}
+					}
+					td {
+						height: 28px;
+						border-right: 1px solid #f1ece2;
+						color: #333;
+						font-size: 13px;
+						background-color: #f1ece2;
+					}
+				}
+			}
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+			table-layout: fixed;
+		}
+
+		.table-header {
+			position: relative;
+
+			thead {
+				tr {
+					border-bottom: 1px solid #e8eaec;
+				}
+				th {
+					position: relative;
+					z-index: 2;
+					box-sizing: border-box;
+					height: $headerHeight;
+					padding: 0 5px;
+					border-right: 1px solid #e8eaec;
+					border-spacing: 0;
+					color: #fff;
+					font-size: 14px;
+					text-align: center;
+					background-color: $dark;
+
+					&:last-child {
+						border-right: none;
+					}
+				}
+			}
+		}
+
+		.table-body {
+			position: relative;
+			z-index: 1;
+			border-right: 1px solid #e8eaec;
+			border-left: 1px solid #e8eaec;
+			overflow: auto;
+
+			&:after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 1px;
+				background-color: #e8eaec;
+				content: '';
+			}
+
+			tbody {
+				tr {
+					border-bottom: 1px solid #e8eaec;
+
+					&:hover {
+						td {
+							background-color: rgba($primary, 0.1);
+						}
+					}
+					&.current-row {
+						td {
+							background-color: rgba($primary, 0.39);
+						}
+					}
+				}
+				td {
+					box-sizing: border-box;
+					height: $height;
+					padding: 5px;
+					border-right: 1px solid #e8eaec;
+					color: #606266;
+					font-size: 14px;
+
+					&:last-child {
+						border-right: none;
+					}
+
+					.cell {
+						&.is-right {
+							text-align: right;
+						}
+						&.is-center {
+							text-align: center;
+						}
+						&.is-overflow {
+							overflow: hidden;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+						}
+					}
+				}
+			}
+		}
+	}
+}

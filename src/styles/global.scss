@@ -1,0 +1,40 @@
+html {
+	line-height: 1.15;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+html,
+body {
+	height: 100%;
+	padding-right: 0 !important;
+	overflow: hidden;
+	font-family: 'Microsoft YaHei';
+	-webkit-font-smoothing: antialiased;
+}
+
+// 表格列拖动样式
+.dragColbg {
+	background-color: $primary !important;
+}
+
+.iconfont {
+	vertical-align: middle;
+}
+
+#nprogress .bar {
+	background-color: $primary !important;
+}
+#nprogress .peg {
+	box-shadow: 0 0 10px $primary, 0 0 5px $primary !important;
+}
+
+.clearfix {
+	display: table;
+	width: 100%;
+
+	&:before,
+	&:after {
+		display: table;
+		content: '';
+	}
+}

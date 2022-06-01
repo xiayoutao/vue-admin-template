@@ -1,0 +1,331 @@
+// 按钮
+.el-button {
+	&.el-button--small:not(.is-circle):not(.is-round) {
+		height: 28px;
+		overflow: hidden;
+		line-height: 26px;
+	}
+
+	> span {
+		vertical-align: middle;
+	}
+	[class*='el-icon-'] + span {
+		margin-left: 0;
+	}
+
+	> i {
+		margin-right: 3px;
+		vertical-align: middle;
+	}
+
+	& + .el-button {
+		margin-left: 5px !important;
+	}
+
+	&.el-button--text {
+		&.link-primary,
+		&.link-success,
+		&.link-warning,
+		&.link-danger {
+			font-weight: 700;
+			font-size: 14px;
+			text-decoration: underline;
+		}
+		&.link-primary {
+			color: $primary;
+		}
+		&.link-success {
+			color: $success;
+		}
+		&.link-warning {
+			color: $warning;
+		}
+		&.link-danger {
+			color: $danger;
+		}
+	}
+}
+
+// 输入框
+.el-input {
+	.el-input-group__prepend {
+		font-size: 0;
+		background-color: transparent;
+
+		.el-select {
+			vertical-align: middle;
+
+			.el-input__inner {
+				padding-right: 20px;
+			}
+		}
+
+		> * {
+			font-size: 14px;
+		}
+	}
+	.el-input-group__append {
+		min-width: 30px;
+		padding-right: 5px;
+		padding-left: 5px;
+		text-align: center;
+		> * {
+			line-height: 26px;
+		}
+	}
+
+	.el-input__inner {
+		padding-right: 8px;
+		padding-left: 8px;
+	}
+}
+
+.el-select-dropdown {
+	.el-select-dropdown__item {
+		padding: 0 10px;
+		font-size: 13px;
+	}
+}
+
+.el-textarea {
+	.el-textarea__inner {
+		padding-right: 8px;
+		padding-left: 8px;
+	}
+}
+
+.el-cascader {
+	font-size: 0;
+}
+
+.el-radio-button--mini {
+	.el-radio-button__inner {
+		padding: 5px 12px;
+	}
+}
+
+.el-date-editor.el-input {
+	width: 112px; // 默认宽度
+
+	.el-input__inner {
+		padding-right: 22px;
+		padding-left: 22px;
+	}
+
+	.el-input__prefix {
+		left: 0;
+	}
+
+	.el-input__suffix {
+		right: 0;
+	}
+}
+
+// 普通日历选择面板
+.el-date-picker {
+	width: 260px;
+
+	.el-date-picker__header {
+		margin: 6px;
+	}
+
+	.el-picker-panel__content {
+		width: 260px;
+		margin: 6px 0;
+
+		.el-date-table th {
+			padding: 0;
+		}
+
+		.el-date-table td {
+			padding: 0;
+		}
+	}
+}
+
+.custom-upload {
+	@include flex-row(flex-start);
+
+	.el-upload {
+		&.el-upload--picture-card {
+			@include flex-row(center, center);
+			width: 80px;
+			height: 80px;
+			line-height: 80px;
+		}
+	}
+
+	.el-upload-list {
+		&.el-upload-list--text {
+			@include flex-row(center);
+
+			.el-upload-list__item {
+				min-width: 100px;
+				max-width: 180px;
+				margin-top: 0;
+				margin-left: 8px;
+				overflow: hidden;
+			}
+		}
+		&.el-upload-list--picture-card {
+			height: 88px;
+
+			.el-upload-list__item {
+				width: 80px;
+				height: 80px;
+				margin: 0 5px 5px 0;
+			}
+		}
+		&.el-upload-list--text {
+			.el-upload-list__item {
+				max-width: 160px;
+				height: 28px;
+				border-radius: 4px;
+				color: $warning;
+				background-color: rgba($warning, 0.25);
+
+				.el-upload-list__item-name {
+					margin-right: 30px;
+					color: $warning;
+					i {
+						color: $warning;
+					}
+				}
+				.el-icon-close {
+					width: 15px;
+					height: 15px;
+					border: 1px solid $warning;
+					border-radius: 50%;
+					color: $warning;
+					font-weight: 700;
+					font-size: 12px;
+					line-height: 15px;
+					text-align: center;
+				}
+				.el-icon-upload-success {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+// 表单
+.el-form {
+	&.el-form--label-top {
+		.el-form-item__label {
+			height: auto;
+			padding-bottom: 0;
+			line-height: 1;
+		}
+	}
+
+	.el-form-item {
+		margin-bottom: 16px;
+	}
+
+	.el-form-item__error {
+	}
+}
+
+.el-table {
+	&.el-table--small {
+		font-size: 14px;
+	}
+}
+
+.el-pagination {
+	color: #333;
+
+	.el-pager li,
+	.el-pagination__editor.el-input .el-input__inner,
+	span:not([class*='suffix']),
+	button {
+		height: 24px;
+		line-height: 24px;
+	}
+
+	&.is-background .btn-prev,
+	&.is-background .btn-next,
+	&.is-background .el-pager li {
+		min-width: 24px;
+	}
+
+	&.is-background .btn-prev,
+	&.is-background .btn-next {
+		width: 24px;
+	}
+
+	.el-pagination__jump {
+		margin-left: 10px;
+	}
+}
+
+.el-popover.el-popper {
+	&.no-padding {
+		padding: 0;
+		box-shadow: 0px 0px 8px #333333;
+	}
+	.popper__arrow {
+		border-bottom-color: #f1ece2;
+		&:after {
+			border-bottom-color: #f1ece2;
+		}
+	}
+	&[x-placement^='bottom'] {
+		.popper__arrow {
+			// top: -8px;
+		}
+	}
+}
+
+.el-message-box {
+	&.custom-confirm {
+		.el-message-box__btns {
+			@include flex-row(center, flex-end);
+			.el-button:first-child {
+				float: right;
+			}
+		}
+	}
+}
+
+.el-message {
+	.el-message__icon {
+		font-size: 20px;
+	}
+	.el-message__content {
+		font-size: 15px;
+	}
+	&.el-message--primary {
+		border-color: $primary;
+		color: $primary;
+		background-color: #cef3dc;
+	}
+	&.el-message--success {
+		border-color: $primary;
+		background-color: #cef3dc;
+
+		.el-message__icon,
+		.el-message__content {
+			color: $primary;
+		}
+	}
+	&.el-message--warning {
+		border-color: $warning;
+		background-color: #f9e7d9;
+
+		.el-message__icon,
+		.el-message__content {
+			color: $warning;
+		}
+	}
+	&.el-message--error {
+		border-color: $danger;
+		background-color: #ffdede;
+		.el-message__icon,
+		.el-message__content {
+			color: $danger;
+		}
+	}
+}

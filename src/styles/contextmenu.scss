@@ -1,0 +1,35 @@
+.contextmenu {
+	position: fixed;
+	z-index: 2000;
+	margin: 0;
+	padding: 3px 0;
+	border-radius: 3px;
+	color: #333;
+	font-weight: 400;
+	font-size: 15px;
+	background-color: #fff;
+	box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+	transition: all 0.1s;
+
+	>span {
+		display: block;
+		min-width: 80px;
+		margin: 0;
+		padding: 7px 16px;
+		text-align: center;
+
+		&:not(.disabled) {
+			cursor: pointer;
+
+			&:hover {
+				color: $primary;
+				background-color: #eee;
+			}
+		}
+
+		&.disabled {
+			color: #999;
+			cursor: not-allowed;
+		}
+	}
+}

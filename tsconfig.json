@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["src/*"],
+      "@cps/*": ["src/components/*"]
+    },
+    "types": []
+  },
+  "include": ["src/**/*"],
+  "exclude": []
+}

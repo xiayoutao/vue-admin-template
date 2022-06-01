@@ -1,0 +1,86 @@
+// base color
+$primary: #409eff;
+$success: #67c23a;
+$warning: #e6a23c;
+$danger: #f56c6c;
+
+$blue: #324157;
+$light-blue: #3a71a8;
+$red: #c03639;
+$pink: #e65d6e;
+$green: #30b08f;
+$tiffany: #4ab7bd;
+$yellow: #fec171;
+$panGreen: #30b08f;
+$dark: #2b3a48;
+
+$headerHeight: 56px;
+$sldebarWidth: 210px;
+
+// sidebar
+$menuText: #eee;
+$menuActiveText: #409eff;
+$subMenuActiveText: #f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+
+$menuBg: $dark;
+$menuHover: #263445;
+$menuHeight: 50px;
+
+$subMenuBg: #1f2d3d;
+$subMenuHover: rgba($primary, 0.8);
+
+$sideBarWidth: 210px;
+
+@mixin flex-row(
+	$align-items: stretch,
+	$justify-content: flex-start,
+	$align-content: stretch
+) {
+	display: flex;
+	flex-direction: row;
+	align-content: $align-content;
+	align-items: $align-items;
+	justify-content: $justify-content;
+}
+
+// 竖行排版，一行显示一个
+@mixin flex-column(
+	$align-items: stretch,
+	$justify-content: flex-start,
+	$align-content: stretch
+) {
+	display: flex;
+	flex-direction: column;
+	align-content: $align-content;
+	align-items: $align-items;
+	justify-content: $justify-content;
+}
+
+// 自动换行
+@mixin flex-wrap(
+	$align-items: stretch,
+	$justify-content: flex-start,
+	$flex-direction: row
+) {
+	display: flex;
+	flex-direction: $flex-direction;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	align-items: $align-items;
+	justify-content: $justify-content;
+}
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+
+:export {
+	theme: $primary;
+	menuText: $menuText;
+	menuActiveText: $menuActiveText;
+	subMenuActiveText: $subMenuActiveText;
+	menuBg: $menuBg;
+	menuHover: $menuHover;
+	subMenuBg: $subMenuBg;
+	subMenuHover: $subMenuHover;
+	sideBarWidth: $sideBarWidth;
+}

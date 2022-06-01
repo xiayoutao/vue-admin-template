@@ -1,0 +1,125 @@
+.scrollbar-wrapper {
+	overflow-x: hidden !important;
+}
+.sidebar-container {
+	position: fixed;
+	top: $headerHeight;
+	bottom: 0;
+	left: 0;
+	z-index: 1001;
+	width: $sideBarWidth !important;
+	height: 100%;
+	border-top: 1px solid rgba(112, 112, 112, 0.6);
+	overflow: hidden;
+	font-size: 0px;
+	background-color: $menuBg;
+	transition: width 0.28s;
+
+	.system-name {
+		padding: 20px 0 20px 20px;
+		color: $primary;
+		font-weight: 700;
+		font-size: 20px;
+		opacity: 0.6;
+		transition: all 0.3s font-size 0.2s;
+
+		.short {
+			display: none;
+			font-size: 18px;
+		}
+	}
+
+	.horizontal-collapse-transition {
+		transition: 0s width ease-in-out, 0s padding-left ease-in-out,
+			0s padding-right ease-in-out;
+	}
+
+	.scrollbar-wrapper {
+		overflow-x: hidden !important;
+	}
+
+	.el-scrollbar__bar.is-vertical {
+		right: 0px;
+	}
+
+	.el-scrollbar {
+		height: 100%;
+	}
+
+	&.has-logo {
+		.el-scrollbar {
+			height: calc(100% - 50px);
+		}
+	}
+
+	.is-horizontal {
+		display: none;
+	}
+
+	a {
+		display: inline-block;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.svg-icon {
+		margin-right: 16px;
+	}
+
+	.sub-el-icon {
+		margin-right: 12px;
+		margin-left: -2px;
+	}
+
+	.el-menu {
+		width: 100% !important;
+		height: 100%;
+		border: none;
+	}
+
+	.sidebar.el-menu > div > .el-submenu.is-active > .el-submenu__title {
+		color: #fff;
+		background-color: $primary !important;
+		> i {
+			color: #fff;
+		}
+	}
+
+	// menu hover
+	.submenu-title-noDropdown,
+	.el-submenu__title {
+		&:hover {
+			background-color: $menuHover !important;
+		}
+	}
+
+	& .nest-menu .el-submenu > .el-submenu__title,
+	& .el-submenu .el-menu-item {
+		min-width: $sideBarWidth !important;
+		background-color: $subMenuBg !important;
+
+		&:hover {
+			background-color: $subMenuHover !important;
+		}
+		&.is-active {
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+	.el-menu-item {
+		height: $menuHeight;
+		font-size: 14px;
+		line-height: $menuHeight;
+	}
+	.el-submenu__title {
+		height: $menuHeight;
+		font-weight: 700;
+		font-size: 15px;
+		line-height: $menuHeight;
+	}
+}
+
+.el-menu--collapse .el-menu .el-submenu {
+	min-width: $sideBarWidth !important;
+}

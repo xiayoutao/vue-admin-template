@@ -1,0 +1,83 @@
+@import './common.scss';
+
+/deep/ .elx-table {
+	&.elx-editable .elx-body--column,
+	.elx-body--column.col--ellipsis {
+		// 设置单元格高度
+		height: $height;
+	}
+	.elx-header--row {
+		background-color: $dark;
+	}
+	.elx-footer--column.col--ellipsis,
+	.elx-header--column.col--ellipsis {
+		// 设置表头高度
+		height: $headerHeight;
+		color: #fff;
+	}
+
+	&.border--default .elx-table--header-wrapper,
+	&.border--full .elx-table--header-wrapper,
+	&.border--outer .elx-table--header-wrapper {
+		// 表头样式
+	}
+
+	.elx-body--row.row--stripe {
+		background-color: rgba($primary, 0.1);
+	}
+
+	.elx-body--row.row--hover:not(.row--current),
+	.elx-body--row.row--hover:not(.row--current).row--stripe {
+		// 鼠标经过的样式，排除当前行
+		background-color: rgba($primary, 0.1);
+	}
+
+	.elx-body--row.row--hover,
+	.elx-body--row.row--hover.row--current,
+	.elx-body--row.row--checked,
+	.elx-body--row.row--current,
+	.elx-body--row.row--radio {
+		// 选中、当前行样式
+		background-color: rgba($primary, 0.39);
+	}
+
+	.elx-cell {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
+
+	.is--checked.elx-cell--checkbox .elx-checkbox--icon:before,
+	.is--indeterminate.elx-cell--checkbox .elx-checkbox--icon:before,
+	.is--checked.elx-table--filter-option .elx-checkbox--icon:before,
+	.is--indeterminate.elx-table--filter-option .elx-checkbox--icon:before {
+		border-color: $primary;
+		background-color: $primary;
+	}
+	.elx-cell--checkbox:not(.is--disabled):hover .elx-checkbox--icon:before,
+	.elx-table--filter-option:not(.is--disabled):hover
+	.elx-checkbox--icon:before {
+		border-color: $primary;
+	}
+
+	.elx-sort--asc-btn.sort--active,
+	.elx-sort--desc-btn.sort--active {
+		color: $primary;
+	}
+
+	.elx-table--filter-template .el-input__inner:focus {
+		border-color: $primary;
+	}
+
+	.elx-table--filter-footer button:not(.is--disabled):hover {
+		color: $primary;
+	}
+	.elx-table--filter-header .elx-table--filter-option.is--checked,
+	.elx-table--filter-body .elx-table--filter-option.is--checked {
+		color: $primary;
+	}
+	.elx-table--filter-wrapper .elx-table--filter-body > li.is--checked,
+	.elx-table--filter-wrapper .elx-table--filter-header > li.is--checked,
+	.filter--active .elx-cell--filter .elx-filter--btn {
+		color: $primary;
+	}
+}

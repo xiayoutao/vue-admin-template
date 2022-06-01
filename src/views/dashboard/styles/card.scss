@@ -1,0 +1,84 @@
+.count-card {
+	@include flex-column();
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	height: calc(33.33% - 15px);
+	margin-bottom: 15px;
+	border: 1px solid #0060a6;
+	background: rgba(24, 59, 109, 0.35);
+
+	.angle {
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		background: url('/img/dashboard/right-angle.png') no-repeat center;
+		background-size: 100%;
+
+		&.top-left {
+			top: -1px;
+			left: -1px;
+		}
+		&.top-right {
+			top: -1px;
+			right: -1px;
+			transform: rotate(90deg);
+		}
+		&.bottom-left {
+			bottom: -1px;
+			left: -1px;
+			transform: rotate(-90deg);
+		}
+		&.bottom-right {
+			right: -1px;
+			bottom: -1px;
+			transform: rotate(180deg);
+		}
+	}
+	.header {
+		@include flex-row(center, space-between);
+		height: 40px;
+		padding: 0 12px;
+		color: #fff;
+
+		.title {
+			flex: 1;
+			margin-right: 5px;
+			font-weight: 700;
+			font-size: 16px;
+			white-space: nowrap;
+		}
+		.filter {
+			@include flex-row(center);
+		}
+	}
+	.body {
+		flex: 1;
+	}
+}
+
+/deep/.el-date-editor.el-input {
+	&.date-count {
+		flex: 1;
+		width: auto;
+		max-width: 98px;
+
+		.el-input__inner {
+			width: 100%;
+			height: 24px;
+			padding: 0 20px 0 5px;
+			border: 1px solid #3dabff;
+			border-radius: 2px;
+			color: #fff;
+			background: rgba(#065894, 0.5);
+		}
+		.el-input__prefix {
+			display: none;
+		}
+		.el-input__suffix {
+			.el-input__icon {
+				line-height: 24px;
+			}
+		}
+	}
+}

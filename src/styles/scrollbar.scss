@@ -1,0 +1,30 @@
+.scrollbar::-webkit-scrollbar {
+	// 设置整个滚动条的样式
+	width: 10px;
+	height: 10px;
+
+	&-button {
+		// 滚动条上的按钮 (上下箭头)
+	}
+	&-thumb {
+		// 滚动条上的滚动滑块的样式
+		border-radius: 10px;
+		background-color: rgba(#4f5b66, 0.75);
+		transition: 1s;
+
+		&:hover {
+			background-color: #4f5b66;
+		}
+		&:active {
+			background-color: #4f5b66;
+		}
+	}
+	&-track {
+		// 滚动条没有滑块覆盖的轨道部分
+		background-color: #e3e0e0;
+	}
+	&-corner {
+		// 当同时有垂直滚动条和水平滚动条时交汇的部分，默认为白色
+		display: none;
+	}
+}
