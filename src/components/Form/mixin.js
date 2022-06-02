@@ -26,11 +26,6 @@ export default {
 				return [];
 			}
 			if (this.dataType === 'dict') {
-				console.log(
-					'this.dataSource',
-					this.dataSource,
-					this.$store.getters.getDictByCode(this.dataSource),
-				);
 				return cloneDeep(
 					this.$store.getters.getDictByCode(this.dataSource) || [],
 				);

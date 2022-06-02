@@ -1,6 +1,6 @@
 <template>
 	<div class="navbar">
-		<div class="logo"></div>
+		<div class="logo">后台管理系统</div>
 		<hamburger
 			id="hamburger"
 			class="hamburger"
@@ -129,9 +129,12 @@ export default {
 	box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
 	.logo {
+		@include flex-row(center, center);
 		width: $sideBarWidth;
 		min-width: $sideBarWidth;
 		height: 100%;
+		color: #fff;
+		font-size: 28px;
 		transition: all 0.28s;
 	}
 

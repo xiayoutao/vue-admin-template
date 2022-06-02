@@ -26,10 +26,10 @@
 				border
 				fit
 				:highlight-current-row="
-					getPropsByDefault('highlight-current-row', false)
+					getPropsByDefault('highlight-current-row', true)
 				"
 				:header-cell-class-name="headerCellClassName"
-				:height="tableHeight"
+				:height="tableHeight ? tableHeight : undefined"
 				v-on="{
 					...$listeners,
 					'sort-change': handleTableSortChange,

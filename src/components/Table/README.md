@@ -73,7 +73,7 @@
     @on-sort="handleSortChange"
   >
     <template #search>
-      <x-filters :config="tableSearch"></x-filters>
+      <bp-filters :config="tableSearch"></bp-filters>
     </template>
     <template #toolbar>
       <el-button type="primary" icon="el-icon-plus">新增</el-button>
@@ -81,10 +81,7 @@
       <el-button icon="el-icon-plus">禁用</el-button>
     </template>
     <template #pagination>
-      <x-pagination
-        :config="{ total: dataList.length }"
-        @on-page="handlePageChange"
-      ></x-pagination>
+      <bp-pagination @on-page="handlePageChange"></bp-pagination>
     </template>
   </virtual-table>
 </template>

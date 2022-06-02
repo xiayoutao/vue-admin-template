@@ -1,9 +1,10 @@
 import APIs from '.';
 import request, { handle } from '@/utils/http';
 
-export async function car_info(params) {
+// 模拟
+export async function mapJson(params) {
 	const res = await request({
-		url: APIs.common.car_info,
+		url: APIs.common.map,
 		method: 'get',
 		params,
 	});

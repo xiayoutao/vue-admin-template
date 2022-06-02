@@ -18,9 +18,7 @@
 				<main-card :list="trainNumberMonthData"></main-card>
 			</div>
 			<div class="main-bottom">
-				<div class="main-map">
-					<chart-map id="map" :option="{}"></chart-map>
-				</div>
+				<main-map></main-map>
 				<main-transport
 					:trouble="troubleCount"
 					:lateStart="lateStartCount"
@@ -44,9 +42,8 @@
 
 <script>
 import { formatDate } from '@/utils/date';
-import ChartShow from '@cps/Chart/show.vue';
-import ChartMap from '@cps/Chart/map.vue';
 import MainCard from './components/main-card.vue';
+import MainMap from './components/main-map.vue';
 import MainTransport from './components/main-transport.vue';
 import { trainNumberCount } from '@/apis/dashboard';
 
@@ -62,9 +59,8 @@ export default {
 	name: 'dashboard',
 	components: {
 		...modules,
-		ChartShow,
-		ChartMap,
 		MainCard,
+		MainMap,
 		MainTransport,
 	},
 	filters: {
@@ -138,10 +134,10 @@ export default {
 		initDate() {
 			const d = new Date();
 			this.today = formatDate(d, 'yyyy-MM-dd');
-			const day = d.getDay(); // 周几
-			d.setDate(d.getDate() - day + 1); // 周一
+			d.setDate(1); // 1号
 			this.startDate = formatDate(d, 'yyyy-MM-dd');
-			d.setDate(d.getDate() + 6); // 周日
+			d.setMonth(d.getMonth() + 1);
+			d.setDate(0);
 			this.endDate = formatDate(d, 'yyyy-MM-dd');
 		},
 	},
@@ -203,7 +199,7 @@ export default {
 
 		.main-header {
 			@include flex-row();
-			padding: 0 20px;
+			padding: 0 20px 10px;
 
 			.main-card {
 				flex: 1;
@@ -216,15 +212,6 @@ export default {
 		.main-bottom {
 			@include flex-row();
 			flex: 1;
-
-			.main-map {
-				flex: 1;
-			}
-			.main-transport {
-				@include flex-column('', center);
-				width: 190px;
-				height: 100%;
-			}
 		}
 	}
 }

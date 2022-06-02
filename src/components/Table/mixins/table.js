@@ -23,6 +23,7 @@ export default {
 				return [];
 			},
 		},
+		height: [Number, String],
 		customButton: {
 			// 是否自定义表格按钮
 			type: Boolean,
@@ -309,8 +310,36 @@ export default {
 		},
 		pageHeight: {
 			handler(val) {
-				if (!this.calcHeight) {
-					this.tableHeight = this.$attrs.height;
+				if (!this.calcHeight) return;
+				if (!val) {
+					this.tableHeight = '';
+					return;
+				}
+				this.$nextTick(() => {
+					let searchHeight = 0;
+					let toolbarHeight = 0;
+					let paginationHeight = 0;
+					if (this.$refs.searchBox) {
+						searchHeight = this.$refs.searchBox.clientHeight || 0;
+					}
+					if (this.$refs.toolbarBox) {
+						toolbarHeight = this.$refs.toolbarBox.clientHeight || 0;
+					}
+					if (this.$refs.paginationBox) {
+						paginationHeight = this.$refs.paginationBox.clientHeight || 0;
+					}
+					this.tableHeight =
+						val - searchHeight - toolbarHeight - paginationHeight - 30;
+				});
+			},
+			immediate: true,
+		},
+		height: {
+			handler(val) {
+				if (this.calcHeight) return;
+				// this.tableHeight = val;
+				if (!val) {
+					this.tableHeight = '';
 					return;
 				}
 				this.$nextTick(() => {

@@ -8,6 +8,7 @@
 import echarts from '@/utils/echarts';
 import { debounce } from '@/utils/util';
 import { isObject } from 'lodash';
+import { loadingOption } from './vars';
 
 export default {
 	props: {
@@ -19,7 +20,6 @@ export default {
 	},
 	data() {
 		return {
-			isLoading: true,
 			myChart: null,
 		};
 	},
@@ -30,13 +30,13 @@ export default {
 	},
 	mounted() {
 		this.$nextTick(() => {
-			this.init(this.option, null);
+			this.init(this.option);
 		});
 		window.addEventListener('resize', this.resize);
 	},
 	activated() {
 		this.$nextTick(() => {
-			this.init(this.option, null);
+			this.init(this.option);
 		});
 		window.addEventListener('resize', this.resize);
 	},
@@ -53,16 +53,10 @@ export default {
 			}
 			// 基于准备好的dom，初始化echarts实例
 			this.myChart = echarts.init(document.getElementById(this.chartId));
-			this.myChart.showLoading({
-				text: '加载中',
-				color: '#fff',
-				textColor: '#fff',
-				maskColor: 'rgba(24, 59, 109, 0.35)',
-				zlevel: 1,
-			});
+			this.myChart.showLoading(loadingOption);
 			// 绘制图表
 			await this.sleep(1000);
-			this.myChart.setOption(JSON.parse(JSON.stringify(option)));
+			this.myChart.setOption(JSON.parse(JSON.stringify(option)), true);
 			this.$emit('on-loaded');
 			this.myChart.hideLoading();
 		},

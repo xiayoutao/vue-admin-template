@@ -38,7 +38,6 @@ export default {
 			if (!startDate || !endDate) return;
 			try {
 				const res = await trainNumber();
-				console.log('res', res);
 				let totalData = 0; // 总数
 				let seriesData = [];
 				res.data.forEach((item) => {

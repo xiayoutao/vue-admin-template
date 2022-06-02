@@ -1,4 +1,7 @@
 export default {
+	common: {
+		map: '/api/running-system/map/china',
+	},
 	auth: {
 		token: '/api/running-auth/oauth/token',
 		logout: '/api/running-auth/oauth/logout',
@@ -86,6 +89,7 @@ export default {
 		trainNumberToday: '/api/running-record/count/trainNumberToday',
 		trainNumberMonth: '/api/running-record/count/trainNumberMonthData',
 		trainNumberCount: '/api/running-record/count/trainNumberCount',
+		task: '/api/running-task/count/list',
 	},
 	demos: {
 		page: '/api/running-demo/demo/page',

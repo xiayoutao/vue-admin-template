@@ -1,6 +1,9 @@
 @import './common.scss';
 
 /deep/ .elx-table {
+	// .elx-header--row .elx-header--column.col--fixed {
+	// 	cursor: no-drop;
+	// }
 	&.elx-editable .elx-body--column,
 	.elx-body--column.col--ellipsis {
 		// 设置单元格高度
@@ -26,18 +29,21 @@
 		background-color: rgba($primary, 0.1);
 	}
 
-	.elx-body--row.row--hover:not(.row--current),
-	.elx-body--row.row--hover:not(.row--current).row--stripe {
+	.elx-body--row.row--hover,
+	.elx-body--row.row--hover.row--stripe {
 		// 鼠标经过的样式，排除当前行
-		background-color: rgba($primary, 0.1);
+		background-color: #e1e1e1;
 	}
 
-	.elx-body--row.row--hover,
-	.elx-body--row.row--hover.row--current,
-	.elx-body--row.row--checked,
 	.elx-body--row.row--current,
+	.elx-body--row.row--current.row--hover,
 	.elx-body--row.row--radio {
 		// 选中、当前行样式
+		background-color: #d1d1d1;
+	}
+	.elx-body--row.row--checked,
+	.elx-body--row.row--checked.row--hover {
+		// 勾选行样式
 		background-color: rgba($primary, 0.39);
 	}
 

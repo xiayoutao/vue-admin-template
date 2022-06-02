@@ -14,6 +14,7 @@ const mockOption = {
 	role: true,
 	dept: true,
 	region: true,
+	china: true,
 	dashboard: true,
 	demo: true,
 };

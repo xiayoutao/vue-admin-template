@@ -42,6 +42,7 @@
 | span | 所占位置宽度，24占满整行；用户日期范围有2个字段 | Number | - |
 | span1 | 所占位置宽度，24占满整行；用户日期范围有2个字段 | Number | - |
 | span2 | 所占位置宽度，24占满整行；用户日期范围有2个字段 | Number | - |
+| allowSameDay | 是否允许同一天（type=daterange有效） | Boolean | true |
 | options | 数据选项 | String | - |
 | events | 绑定事件 | Object | - |
 | onChange | type=upload时，文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用 | Function(val) 或者 Function({file, fileList, option, refs}) | - |

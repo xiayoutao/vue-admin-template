@@ -6,6 +6,7 @@
 		:action="uploadApi"
 		:headers="setUploadToken()"
 		:data="uploadParams"
+		:limit="limit"
 		:list-type="listType"
 		:with-credentials="true"
 		:file-list="fileList"
@@ -29,6 +30,10 @@ export default {
 	props: {
 		value: [String, Number, Array],
 		listType: String,
+		limit: {
+			type: Number,
+			default: 5,
+		},
 		systemType: {
 			type: String,
 			default: 'cvas',
@@ -70,9 +75,11 @@ export default {
 	methods: {
 		onSuccess(response, file, fileList) {
 			if (response.code === 200) {
+				const arr = response.data.name.split('/');
 				this.fileList.push({
-					name: response.data.originalName,
+					name: arr[arr.length - 1],
 					url: response.data.link,
+					shortUrl: response.data.name,
 					uid: file.uid,
 					status: 'success',
 				});

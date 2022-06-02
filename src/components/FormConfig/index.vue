@@ -197,9 +197,10 @@
 </template>
 
 <script>
-import { isObject } from 'lodash';
+import { isObject, isBoolean } from 'lodash';
 import UploadMixin from '@/mixins/upload';
 import { isObjectEqual } from '@/utils/util';
+import { modifyTime } from '@/utils/date';
 import { isHump } from '@/utils/validate';
 import Render from '@cps/Render';
 import FormInput from '@cps/Form/input.vue';
@@ -294,13 +295,6 @@ export default {
 			},
 			deep: true,
 		},
-		// fields: {
-		// 	handler() {
-		// 		this.reloadRules(); // 处理表单校验规则
-		// 	},
-		// 	deep: true,
-		// 	immediate: true,
-		// },
 	},
 	created() {
 		this.reloadRules(); // 处理表单校验规则
@@ -309,6 +303,17 @@ export default {
 		validate(callback) {
 			this.$refs.dataForm.validate((valid) => {
 				callback && callback(valid);
+			});
+		},
+		validatePromise() {
+			return new Promise((resolve) => {
+				this.$refs.dataForm.validate((valid) => {
+					if (valid) {
+						resolve(true);
+					} else {
+						resolve(false);
+					}
+				});
 			});
 		},
 		resetFields() {
@@ -341,6 +346,7 @@ export default {
 					disabled:
 						this.disabledFields.indexOf(item.prop) >= 0 ||
 						Boolean(item.disabled),
+					allowSameDay: isBoolean(item.allowSameDay) ? item.allowSameDay : true,
 				};
 				let events = {
 					...(item.events || {}),
@@ -361,7 +367,9 @@ export default {
 					}
 				});
 				field.events = events;
-				_fields.push(field);
+				if (!isBoolean(field.visible) || field.visible) {
+					_fields.push(field);
+				}
 			}
 			return _fields;
 		},
@@ -413,10 +421,33 @@ export default {
 				return {
 					...pickerOptions,
 					disabledDate(time) {
+						time = modifyTime(time, 0, 0, 0);
 						if (idx === 1) {
-							return hasVal2 && time.getTime() > new Date(val2).getTime();
+							if (data.allowSameDay) {
+								return (
+									hasVal2 &&
+									time.getTime() > modifyTime(new Date(val2), 0, 0, 0).getTime()
+								);
+							} else {
+								return (
+									hasVal2 &&
+									time.getTime() >=
+										modifyTime(new Date(val2), 0, 0, 0).getTime()
+								);
+							}
 						} else if (idx === 2) {
-							return hasVal1 && time.getTime() < new Date(val1).getTime();
+							if (data.allowSameDay) {
+								return (
+									hasVal1 &&
+									time.getTime() < modifyTime(new Date(val1), 0, 0, 0).getTime()
+								);
+							} else {
+								return (
+									hasVal1 &&
+									time.getTime() <=
+										modifyTime(new Date(val1), 0, 0, 0).getTime()
+								);
+							}
 						}
 					},
 				};

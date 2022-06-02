@@ -77,3 +77,14 @@ export async function trainNumberCount(params) {
 		...res,
 	});
 }
+
+export async function task(params) {
+	const res = await request({
+		url: APIs.dashboard.task,
+		method: 'get',
+		params,
+	});
+	return handle({
+		...res,
+	});
+}

@@ -47,7 +47,7 @@ export default {
 		prependValue: [String, Number],
 		prependWidth: {
 			type: String,
-			default: '100px',
+			default: '112px',
 		},
 		appendClick: {
 			type: Function,

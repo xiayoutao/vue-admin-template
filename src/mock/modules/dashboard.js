@@ -6,6 +6,63 @@ import { getUrlRegExp, getUrlParams, getPageData } from '../util';
 export default ({ mock }) => {
 	if (!mock) return;
 
+	Mock.mock(getUrlRegExp(APIs.dashboard.task), 'get', () => {
+		// 线路
+		return {
+			code: 200,
+			data: [
+				{
+					from: [120.0744, 29.30558],
+					to: [113.23333, 23.16667],
+					fromLabel: '义乌',
+					toLabel: '广州',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [121.473701, 31.230416],
+					fromLabel: '义乌',
+					toLabel: '上海',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [116.397128, 39.916527],
+					fromLabel: '义乌',
+					toLabel: '北京',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [114.02919, 30.58203],
+					fromLabel: '义乌',
+					toLabel: '武汉',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [115.01161, 25.86076],
+					fromLabel: '义乌',
+					toLabel: '赣州',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [112.98626, 28.25591],
+					fromLabel: '义乌',
+					toLabel: '长沙',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [113.6401, 34.72468],
+					fromLabel: '义乌',
+					toLabel: '郑州',
+				},
+				{
+					from: [120.0744, 29.30558],
+					to: [104.10194, 30.65984],
+					fromLabel: '义乌',
+					toLabel: '郑州',
+				},
+			],
+		};
+	});
+
 	Mock.mock(getUrlRegExp(APIs.dashboard.trainNumberCount), 'get', () => {
 		return {
 			code: 200,

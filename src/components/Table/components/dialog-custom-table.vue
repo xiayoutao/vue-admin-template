@@ -1,26 +1,13 @@
 <template>
-	<x-dialog
+	<bp-dialog
 		title="弹窗表单"
 		width="880px"
 		height="608px"
 		:visible.sync="visible"
 	>
-		<div class="tabs-navs">
-			<span
-				class="tab-view"
-				:class="{ active: current === 0 }"
-				@click="current = 0"
-			>
-				字段显示/隐藏
-			</span>
-			<span
-				class="tab-view"
-				:class="{ active: current === 1 }"
-				@click="current = 1"
-			>
-				字段固定
-			</span>
-		</div>
+		<template #tabs>
+			<bp-tabs :tabs.sync="tabs" :current.sync="current"></bp-tabs>
+		</template>
 		<div class="keys-show" key="show" v-show="current === 0">
 			<el-checkbox-group v-model="showKeys">
 				<el-checkbox
@@ -46,7 +33,15 @@
 			</el-checkbox-group>
 		</div>
 		<template #footer>
-			<el-button type="primary" icon="el-icon-check" @click="handleSubmit()">
+			<!-- <el-button type="warning" icon="el-icon-time" @click="handleReset()">
+				重置
+			</el-button> -->
+			<el-button
+				type="primary"
+				icon="el-icon-check"
+				v-prevent-click
+				@click="handleSubmit()"
+			>
 				提交
 			</el-button>
 			<el-button
@@ -57,7 +52,7 @@
 				取消
 			</el-button>
 		</template>
-	</x-dialog>
+	</bp-dialog>
 </template>
 
 <script>
@@ -94,6 +89,7 @@ export default {
 	data() {
 		return {
 			current: 0,
+			tabs: [{ label: '字段显示/隐藏' }, { label: '字段固定' }],
 			columnList: [],
 			showKeys: [], // 显示的字段
 			fixedKeys: [], // 固定的字段
@@ -153,7 +149,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/styles/tabs.scss';
 .keys-show,
 .keys-fixed {
 	transition: all 0.3s;

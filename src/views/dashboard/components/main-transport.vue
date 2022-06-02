@@ -22,10 +22,10 @@
 <script>
 export default {
 	props: {
-		trouble: [String, Number],
-		lateStart: [String, Number],
-		lateArrive: [String, Number],
-		stop: [String, Number],
+		trouble: Number,
+		lateStart: Number,
+		lateArrive: Number,
+		stop: Number,
 	},
 };
 </script>

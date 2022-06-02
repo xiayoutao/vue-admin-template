@@ -32,7 +32,7 @@
 					highlight: getPropsByDefault('highlight', true),
 				}"
 				:highlight-current-row="
-					getPropsByDefault('highlight-current-row', false)
+					getPropsByDefault('highlight-current-row', true)
 				"
 				:data-changes-scroll-top="
 					getPropsByDefault('data-changes-scroll-top', false)
